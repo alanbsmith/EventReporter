@@ -1,4 +1,4 @@
-class Load
+class LoadCommand
 
   def initialize(filename)
     @filename = filename
