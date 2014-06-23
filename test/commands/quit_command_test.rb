@@ -24,7 +24,7 @@ class QuitCommandTest < MiniTest::Test
   def test_it_sets_running_to_false
     mock = MiniTest::Mock.new
     mock.expect(:running=, [], [false])
-    QuitCommand.new(mock).execute
+    QuitCommand.new(mock, nil).execute
     mock.verify
   end
 end
