@@ -2,7 +2,6 @@ require './test/test_helper'
 require './lib/commands/load_command'
 
 class LoadCommandTest < Minitest::Test
-
   def test_it_exists
     assert LoadCommand
   end
@@ -15,5 +14,4 @@ class LoadCommandTest < Minitest::Test
     command = LoadCommand.new(filename)
     assert_equal "people.csv", command.load_file(filename)
   end
-
 end

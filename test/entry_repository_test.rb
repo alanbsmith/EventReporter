@@ -13,6 +13,7 @@ class EntryRepositoryTest < Minitest::Test
     repo = EntryRepository.new(file_name)
     assert_equal 'event_attendees.csv', repo.file_name
   end
+end
 
   # Format is functional, but how do I test it?
 #   def test_it_formats_the_file
