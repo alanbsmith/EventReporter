@@ -15,7 +15,7 @@ class QuitCommand < Command
     'Usage: quit'
   end
 
-  def initialize(obj, args = nil)
+  def initialize(obj, args)
     @obj = obj
   end
 
