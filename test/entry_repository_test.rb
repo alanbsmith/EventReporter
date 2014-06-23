@@ -1,8 +1,6 @@
-gem 'minitest', '~> 5.2'
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/entry_repository'
-require '../data/event_attendees'
+require './test/test_helper'
+require './lib/entry_repository'
+# require_relative '../data/event_attendees.csv'
 
 class EntryRepositoryTest < Minitest::Test
 

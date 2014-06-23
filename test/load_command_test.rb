@@ -1,12 +1,10 @@
-gem 'minitest', '~> 5.2'
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/load'
+require './test/test_helper'
+require './lib/commands/load_command'
 
-class LoadTest < Minitest::Test
+class LoadCommandTest < Minitest::Test
 
   def test_it_exists
-    assert Load
+    assert LoadCommand
   end
 
   def test_it_inherits_from_the_command_class
@@ -14,7 +12,7 @@ class LoadTest < Minitest::Test
 
   def test_it_takes_an_argument_filename
     filename = "people.csv"
-    command = Load.new(filename)
+    command = LoadCommand.new(filename)
     assert_equal "people.csv", command.load_file(filename)
   end
 
