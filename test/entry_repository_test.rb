@@ -2,7 +2,7 @@ gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/entry_repository'
-# require_relative '../data/event_attendees.csv'
+require '../data/event_attendees'
 
 class EntryRepositoryTest < Minitest::Test
 
@@ -11,11 +11,15 @@ class EntryRepositoryTest < Minitest::Test
   end
 
   def test_it_takes_an_argument
-    filename = 'event_attendees.csv'
-    repo = EntryRepository.new(filename)
-    assert_equal 'event_attendees.csv', repo.filename
+    file_name = 'event_attendees.csv'
+    repo = EntryRepository.new(file_name)
+    assert_equal 'event_attendees.csv', repo.file_name
   end
 
-  def test
-  end
-end
+  # Format is functional, but how do I test it?
+#   def test_it_formats_the_file
+#     file_name = './data/event_attendees.csv'
+#     repo = EntryRepository.new(file_name)
+#     assert ??????
+#   end
+# end
