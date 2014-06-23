@@ -11,20 +11,20 @@ class REPL
     @running = true
 
     while running
-      command = get_input
-      process(command)
+      command, *args = get_input
+      process(command, args)
     end
   end
 
   def get_input
     print '> '
-    gets.strip.downcase
+    gets.strip.split
   end
 
-  def process(command)
+  def process(command, args)
     cmd_obj = commands.find { |cmd| cmd.aliases.include?(command) }
     if cmd_obj
-      cmd_obj.new(self).execute
+      cmd_obj.new(self, args).execute
     else
       puts 'Unrecognized command.'
     end

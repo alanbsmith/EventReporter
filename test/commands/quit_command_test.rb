@@ -8,9 +8,17 @@ class QuitCommandTest < MiniTest::Test
   end
 
   def test_it_has_aliases
-    assert QuitCommand.aliases
+    assert_respond_to QuitCommand, :aliases
     assert_includes QuitCommand.aliases, 'q'
     assert_includes QuitCommand.aliases, 'quit'
+  end
+
+  def test_it_has_a_description
+    assert_respond_to QuitCommand, :description
+  end
+
+  def test_it_has_a_usage
+    assert_respond_to QuitCommand, :usage
   end
 
   def test_it_sets_running_to_false

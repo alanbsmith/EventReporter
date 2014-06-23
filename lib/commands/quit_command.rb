@@ -1,11 +1,21 @@
-class QuitCommand
+require './lib/command'
+
+class QuitCommand < Command
   attr_reader :obj
 
   def self.aliases
     ['q', 'quit']
   end
 
-  def initialize(obj)
+  def self.description
+    'Quits the program.'
+  end
+
+  def self.usage
+    'Usage: quit'
+  end
+
+  def initialize(obj, args = nil)
     @obj = obj
   end
 
