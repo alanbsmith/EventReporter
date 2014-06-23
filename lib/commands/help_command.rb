@@ -17,7 +17,7 @@ class HelpCommand < Command
 
   def initialize(obj, args)
     @obj = obj
-    @args = args
+    @args = args.map(&:downcase)
   end
 
   def execute
