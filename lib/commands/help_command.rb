@@ -1,4 +1,6 @@
-class HelpCommand
+require './lib/command'
+
+class HelpCommand < Command
   attr_reader :obj, :args
 
   def self.aliases
