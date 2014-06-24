@@ -30,6 +30,8 @@ class FindCommand < Command
     hash
   end
 
+  private
+
   def parse_grouped_values(values)
     values = values.split(',').map(&:strip)
     values.collect do |value|
