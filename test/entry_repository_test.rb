@@ -1,6 +1,5 @@
-require './test/test_helper'
-require './lib/entry_repository'
-# require_relative '../data/event_attendees.csv'
+require_relative '../test/test_helper.rb'
+require_relative '../lib/entry_repository'
 
 class EntryRepositoryTest < Minitest::Test
 
@@ -8,16 +7,8 @@ class EntryRepositoryTest < Minitest::Test
     assert EntryRepository
   end
 
-  def test_it_takes_an_argument
-    file_name = 'event_attendees.csv'
-    repo = EntryRepository.new(file_name)
-    assert_equal 'event_attendees.csv', repo.file_name
+  def test_it_should_load_the_data
+    
   end
 
-  # Format is functional, but how do I test it?
-#   def test_it_formats_the_file
-#     file_name = './data/event_attendees.csv'
-#     repo = EntryRepository.new(file_name)
-#     assert ??????
-#   end
-# end
+end
