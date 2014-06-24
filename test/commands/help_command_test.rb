@@ -1,5 +1,4 @@
 require './test/test_helper'
-require 'minitest/mock'
 require './lib/commands/help_command'
 
 class HelpCommandTest < MiniTest::Test 
