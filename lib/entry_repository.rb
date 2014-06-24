@@ -7,9 +7,10 @@ class EntryRepository
   def initialize(type)
     @type    = type
     @entries = []
+    @csv     = []
   end
 
-  def load(filename = './data/event_attendees.csv')
+  def load(filename)
     @csv = CSV.open(filename, headers: true, header_converters: :symbol)
   end
 
@@ -23,8 +24,6 @@ class EntryRepository
   def build_entry(row)
     type.build(row)
   end
-
-
 end
 
 
