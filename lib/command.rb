@@ -1,4 +1,6 @@
 class Command
+  attr_reader :obj, :args
+
   def self.aliases
   end
 

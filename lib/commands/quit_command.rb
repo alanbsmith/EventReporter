@@ -1,8 +1,6 @@
 require './lib/command'
 
 class QuitCommand < Command
-  attr_reader :obj
-
   def self.aliases
     ['q', 'quit']
   end
