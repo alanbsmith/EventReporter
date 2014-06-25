@@ -1,4 +1,4 @@
-require './lib/repl'
+require './lib/event_reporter'
 Dir['./lib/commands/*.rb'].each { |file| require file }
 
-REPL.new([LoadCommand, FindCommand]).run
+EventReporter.new([LoadCommand, FindCommand]).run
