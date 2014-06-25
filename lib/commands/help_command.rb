@@ -17,10 +17,6 @@ Usage:
     USAGE
   end
 
-  def validate?
-    args.count > 0
-  end
-
   def run
     if args.count > 0
       help_for(args)

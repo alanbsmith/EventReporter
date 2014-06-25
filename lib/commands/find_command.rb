@@ -17,7 +17,7 @@ class FindCommand < Command
 Usage:
   find <attribute> <condition>
   find <attribute> (<condition>, <condition>)
-  find <attribute> (<condition>, <condition>) and <attribute> <condition>'
+  find <attribute> (<condition>, <condition>) and <attribute> <condition>
 USAGE
   end
 
