@@ -2,6 +2,7 @@ class Command
   attr_reader :obj, :args
 
   def self.aliases
+    []
   end
 
   def self.description
@@ -11,6 +12,10 @@ class Command
   end
 
   def initialize
+  end
+
+  def validate?
+    true
   end
 
   def execute

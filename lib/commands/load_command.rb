@@ -1,11 +1,5 @@
-class LoadCommand
-
-  def initialize(file_name)
-    @file_name = file_name
+class LoadCommand < Command
+  def self.aliases
+    ['l', 'load']
   end
-
-  def load_file(file_name)
-    @file_name
-  end
-
 end
