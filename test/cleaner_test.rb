@@ -12,12 +12,14 @@ class CleanerTest < Minitest::Test
     raw_first_name = "tErTuLlIaN"
     cleaner        = Cleaner.new
     assert_equal "Tertullian", cleaner.first_name(raw_first_name)
+    assert_equal '', cleaner.first_name(nil)
   end
 
   def test_it_cleans_a_last_name
     raw_last_name = "aQuInAs"
     cleaner       = Cleaner.new
     assert_equal "Aquinas", cleaner.last_name(raw_last_name)
+    assert_equal '', cleaner.last_name(nil)
   end
 
   def test_it_cleans_a_zipcode

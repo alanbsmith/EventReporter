@@ -15,14 +15,14 @@ class EntryRepositoryTest < Minitest::Test
 
   def test_it_loads_the_data
     repo = EntryRepository.new(nil)
-    repo.load('./data/dummy_data.csv')
+    repo.load('./test/fixtures/dummy_data.csv')
     assert repo.csv.is_a? CSV
     assert_equal 4, repo.csv.count
   end
 
   def test_it_builds_entries
     repo = EntryRepository.new(TestType)
-    repo.load('./data/dummy_data.csv')
+    repo.load('./test/fixtures/dummy_data.csv')
     repo.build_entries
     assert_equal 4, repo.entries.count
   end

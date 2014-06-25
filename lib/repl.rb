@@ -1,9 +1,12 @@
+require './lib/commands/help_command'
+require './lib/commands/quit_command'
+
 class REPL
   attr_accessor :running
   attr_reader :commands
 
-  def initialize(commands)
-    @commands = commands
+  def initialize(commands = [])
+    @commands = [QuitCommand, HelpCommand].concat(commands).uniq
     @running = false
   end
 

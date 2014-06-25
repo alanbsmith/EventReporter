@@ -4,11 +4,11 @@ require 'ValidateEmail'
 class Cleaner
 
   def first_name(raw_first_name)
-    raw_first_name.capitalize
+    raw_first_name.to_s.capitalize
   end
 
   def last_name(raw_last_name)
-    raw_last_name.capitalize
+    raw_last_name.to_s.capitalize
   end
 
   def email(raw_email)
