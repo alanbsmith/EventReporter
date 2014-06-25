@@ -18,7 +18,7 @@ class Attendee
               :zipcode
 
   def initialize(data, cleaner)
-    @id            = data[:_]
+    @id            = data[:_].to_i
     @regdate       = data[:regdate]
     @first_name    = cleaner.first_name(data[:first_name])
     @last_name     = cleaner.last_name(data[:last_name])

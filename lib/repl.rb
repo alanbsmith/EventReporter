@@ -25,11 +25,13 @@ class REPL
   end
 
   def process(command, args)
+    puts
     cmd_obj = commands.find { |cmd| cmd.aliases.include?(command) }
     if cmd_obj
       cmd_obj.new(self, args).execute
     else
       puts 'Unrecognized command.'
     end
+    puts
   end
 end

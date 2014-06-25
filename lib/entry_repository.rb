@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 
 class EntryRepository
   attr_reader :csv, :entries, :type
@@ -11,7 +10,13 @@ class EntryRepository
   end
 
   def load(filename)
-    @csv = CSV.open(filename, headers: true, header_converters: :symbol)
+    if File.file?(filename)
+      @csv = CSV.open(filename, headers: true, header_converters: :symbol)
+      true
+    else
+      puts 'File does not exist.'
+      false
+    end
   end
 
   def build_entries
@@ -19,6 +24,7 @@ class EntryRepository
     @csv.each do |row|
       entries << build_entry(row)
     end
+    puts "Loaded #{entries.count} items."
     entries
   end
 

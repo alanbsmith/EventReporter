@@ -22,7 +22,7 @@ class QueueCommandTest < MiniTest::Test
 
   def test_it_calls_print_queue_when_printing
     obj = MiniTest::Mock.new
-    obj.expect(:print_queue, [], [])
+    obj.expect(:print_queue, [], ['id'])
     QueueCommand.new(obj, ['print']).execute
     obj.verify
   end

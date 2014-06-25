@@ -11,6 +11,7 @@ class Finder
       value = Array(value).map(&:downcase)
       results = results.select { |entry| value.include?(entry.send(key).to_s.downcase) }
     end
+    puts "Found #{results.count} matching entries."
     results
   end
 end

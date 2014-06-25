@@ -37,7 +37,8 @@ Usage:
   end
 
   def print
-    obj.print_queue
+    sort = args[1] || 'id'
+    obj.print_queue(sort.downcase)
   end
 
   def clear

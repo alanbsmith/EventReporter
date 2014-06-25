@@ -17,17 +17,17 @@ class EventReporter < REPL
   end
 
   def load(filename)
-    repo.load(filename)
-    repo.build_entries
-    puts "Loaded #{repo.entries.count} items from #{filename}."
+    if repo.load(filename)
+      repo.build_entries
+    end
   end
 
   def set_queue(data)
     @queue.load(data)
   end
 
-  def print_queue
-    @queue.print_by(:last_name)
+  def print_queue(by_column)
+    @queue.print_by(by_column)
   end
 
   def clear_queue
