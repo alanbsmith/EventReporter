@@ -10,15 +10,14 @@ class HelpCommand < Command
   end
 
   def self.usage
-    'Usage: help, help <command>'
+    <<-USAGE
+Usage:
+  help
+  help <command>
+    USAGE
   end
 
-  def initialize(obj, args)
-    @obj = obj
-    @args = args.map(&:downcase)
-  end
-
-  def execute
+  def run
     if args.count > 0
       help_for(args)
     else 

@@ -1,5 +1,4 @@
 require './lib/repl'
-require './lib/commands/quit_command'
-require './lib/commands/help_command'
+Dir['./lib/commands/*.rb'].each { |file| require file }
 
-REPL.new([QuitCommand, HelpCommand]).run
+REPL.new([QuitCommand, HelpCommand, LoadCommand, FindCommand]).run

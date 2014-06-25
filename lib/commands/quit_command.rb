@@ -2,7 +2,7 @@ require './lib/command'
 
 class QuitCommand < Command
   def self.aliases
-    ['q', 'quit']
+    ['q', 'quit', 'exit']
   end
 
   def self.description
@@ -10,14 +10,13 @@ class QuitCommand < Command
   end
 
   def self.usage
-    'Usage: quit'
+    <<-USAGE
+Usage:
+  quit
+  USAGE
   end
 
-  def initialize(obj, args)
-    @obj = obj
-  end
-
-  def execute
+  def run
     obj.running = false
   end
 end

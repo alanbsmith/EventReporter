@@ -1,11 +1,26 @@
-class LoadCommand
+require './lib/command'
 
-  def initialize(file_name)
-    @file_name = file_name
+class LoadCommand < Command
+  def self.aliases
+    ['l', 'load']
   end
 
-  def load_file(file_name)
-    @file_name
+  def self.description
+    'Loads a specified file into the repository.'
   end
 
+  def self.usage
+    <<-USAGE
+Usage:
+  load <filename>
+    USAGE
+  end
+
+  def validate?
+    args.count == 1
+  end
+
+  def run
+    obj.load(args.first)
+  end
 end

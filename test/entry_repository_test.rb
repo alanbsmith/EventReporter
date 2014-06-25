@@ -1,24 +1,29 @@
-require './test/test_helper'
-require './lib/entry_repository'
-# require_relative '../data/event_attendees.csv'
+require_relative '../test/test_helper.rb'
+require 'minitest/mock'
+require_relative '../lib/entry_repository'
 
 class EntryRepositoryTest < Minitest::Test
+  class TestType
+    def self.build(row)
+      new
+    end
+  end
 
   def test_it_exists
     assert EntryRepository
   end
 
-  def test_it_takes_an_argument
-    file_name = 'event_attendees.csv'
-    repo = EntryRepository.new(file_name)
-    assert_equal 'event_attendees.csv', repo.file_name
+  def test_it_loads_the_data
+    repo = EntryRepository.new(nil)
+    repo.load('./data/dummy_data.csv')
+    assert repo.csv.is_a? CSV
+    assert_equal 4, repo.csv.count
+  end
+
+  def test_it_builds_entries
+    repo = EntryRepository.new(TestType)
+    repo.load('./data/dummy_data.csv')
+    repo.build_entries
+    assert_equal 4, repo.entries.count
   end
 end
-
-  # Format is functional, but how do I test it?
-#   def test_it_formats_the_file
-#     file_name = './data/event_attendees.csv'
-#     repo = EntryRepository.new(file_name)
-#     assert ??????
-#   end
-# end
