@@ -27,5 +27,3 @@ class EntryRepositoryTest < Minitest::Test
     assert_equal 4, repo.entries.count
   end
 end
-
-end
