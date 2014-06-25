@@ -16,11 +16,8 @@ Usage:
     USAGE
   end
 
-  def validate?
-    args.count == 1
-  end
-
   def run
-    obj.load(args.first)
+    file = args.first || './data/event_attendees.csv'
+    obj.load(file)
   end
 end

@@ -39,15 +39,15 @@ class CleanerTest < Minitest::Test
   def test_it_cleans_phone_numbers
     raw_phone = "(432) 654,12-34"
     cleaner   = Cleaner.new
-    assert_equal "4326541234", cleaner.home_phone(raw_phone)
+    assert_equal "(432) 654-1234", cleaner.home_phone(raw_phone)
 
     raw_phone = nil
     cleaner   = Cleaner.new
-    assert_equal "0000000000", cleaner.home_phone(raw_phone)
+    assert_equal "N/A", cleaner.home_phone(raw_phone)
 
     raw_phone = "6154385000"
     cleaner   = Cleaner.new
-    assert_equal "6154385000", cleaner.home_phone(raw_phone)
+    assert_equal "(615) 438-5000", cleaner.home_phone(raw_phone)
   end
 
   def test_it_validates_email
@@ -57,10 +57,10 @@ class CleanerTest < Minitest::Test
 
     raw_email = "faker_mc_fakerson.faker.com"
     cleaner   = Cleaner.new
-    assert_equal nil, cleaner.email(raw_email)
+    assert_equal 'N/A', cleaner.email(raw_email)
 
     raw_email = nil
     cleaner   = Cleaner.new
-    assert_equal nil, cleaner.email(raw_email)
+    assert_equal 'N/A', cleaner.email(raw_email)
   end
 end

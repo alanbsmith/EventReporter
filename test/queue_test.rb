@@ -41,11 +41,4 @@ class QueueTest < Minitest::Test
     que.load(data)
     assert [], que.clear
   end
-
-  def test_it_prints_the_whole_queue_by_default
-    que  = Queue.new
-    que.load(data)
-    attribute = :last_name
-    p que.print_by(attribute)
-  end
 end

@@ -15,6 +15,7 @@ class EntryRepository
   end
 
   def build_entries
+    @entries = []
     @csv.each do |row|
       entries << build_entry(row)
     end
@@ -24,9 +25,4 @@ class EntryRepository
   def build_entry(row)
     type.build(row)
   end
-end
-
-
-if __FILE__== $0
-
 end

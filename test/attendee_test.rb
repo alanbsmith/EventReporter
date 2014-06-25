@@ -5,12 +5,12 @@ class AttendeeTest < Minitest::Test
 
   def data
     {
-      id: "1" ,
-      registration: "11/12/08 10:47",
+      _: "1",
+      regdate: "11/12/08 10:47",
       first_name:"Allison",
       last_name: "Nguyen",
-      email:"arannon@jumpstartlab.com",
-      home_phone: "615.438-5000",
+      email_address:"arannon@jumpstartlab.com",
+      homephone: "615.438-5000",
       street: "3155 19th St NW",
       city: "Washington",
       state: "DC",
@@ -24,15 +24,15 @@ class AttendeeTest < Minitest::Test
 
   def test_it_has_clean_attributes
     attendee = Attendee.build(data)
-    assert attendee.id,                 "id"
-    assert attendee.registration,       "rg"
-    assert attendee.first_name,         "fn"
-    assert attendee.last_name,          "ln"
-    assert attendee.home_phone,         "pn"
-    assert attendee.email,              "em"
-    assert attendee.street,             "sr"
-    assert attendee.city,               "ct"
-    assert attendee.state,              "st"
-    assert attendee.zipcode,            "zp"
+    assert data[:_], attendee.id
+    assert data[:regdate], attendee.regdate
+    assert data[:first_name], attendee.first_name
+    assert data[:last_name], attendee.last_name
+    assert data[:homephone], attendee.homephone
+    assert data[:email_address], attendee.email_address
+    assert data[:street], attendee.street
+    assert data[:city], attendee.city
+    assert data[:state], attendee.state
+    assert data[:zipcode], attendee.zipcode
   end
 end

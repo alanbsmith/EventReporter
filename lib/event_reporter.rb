@@ -1,6 +1,7 @@
 require './lib/repl'
 require './lib/entry_repository'
 require './lib/attendee'
+require './lib/queue'
 
 class EventReporter < REPL
   attr_reader :repo, :queue
@@ -8,7 +9,7 @@ class EventReporter < REPL
   def initialize(commands = [])
     super
     @repo = EntryRepository.new(Attendee)
-    @queue = []
+    @queue = Queue.new
   end
 
   def entries
@@ -22,6 +23,22 @@ class EventReporter < REPL
   end
 
   def set_queue(data)
-    @queue = data
+    @queue.load(data)
+  end
+
+  def print_queue
+    @queue.print_by(:last_name)
+  end
+
+  def clear_queue
+    @queue.clear
+  end
+
+  def count_queue
+    @queue.count
+  end
+
+  def save_queue(filename)
+    @queue.save(filename)
   end
 end
