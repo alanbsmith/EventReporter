@@ -11,7 +11,9 @@ class Command
   def self.usage
   end
 
-  def initialize
+  def initialize(obj, args)
+    @obj = obj
+    @args = args.to_s.downcase
   end
 
   def validate?

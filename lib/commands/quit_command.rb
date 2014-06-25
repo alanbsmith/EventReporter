@@ -13,10 +13,6 @@ class QuitCommand < Command
     'Usage: quit'
   end
 
-  def initialize(obj, args)
-    @obj = obj
-  end
-
   def execute
     obj.running = false
   end

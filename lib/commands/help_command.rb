@@ -13,11 +13,6 @@ class HelpCommand < Command
     'Usage: help, help <command>'
   end
 
-  def initialize(obj, args)
-    @obj = obj
-    @args = args.map(&:downcase)
-  end
-
   def execute
     if args.count > 0
       help_for(args)

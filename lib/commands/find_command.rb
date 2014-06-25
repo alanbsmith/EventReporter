@@ -14,8 +14,7 @@ class FindCommand < Command
   end
 
   def initialize(obj, args)
-    @obj = obj
-    @args = args
+    super
     @hash = {}
   end
 
