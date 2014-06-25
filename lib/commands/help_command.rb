@@ -14,6 +14,7 @@ class HelpCommand < Command
   end
 
   def execute
+    p args
     if args.count > 0
       help_for(args)
     else 

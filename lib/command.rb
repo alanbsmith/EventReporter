@@ -13,7 +13,7 @@ class Command
 
   def initialize(obj, args)
     @obj = obj
-    @args = args.to_s.downcase
+    @args = args
   end
 
   def validate?

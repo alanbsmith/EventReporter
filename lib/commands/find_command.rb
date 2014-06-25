@@ -8,14 +8,19 @@ class FindCommand < Command
   end
 
   def self.description
+    'Used to search the database by attribute.'
   end
 
   def self.usage
+    'find <attribute> <condition>'
+    'find <attribute> (<condition>, <condition>)'
+    'find <attribute> (<condition>, <condition>) and <attribute> <condition>'
   end
 
   def initialize(obj, args)
     super
     @hash = {}
+    @args = args.join(' ')
   end
 
   def execute
