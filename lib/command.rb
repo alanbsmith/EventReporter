@@ -21,5 +21,15 @@ class Command
   end
 
   def execute
+    if validate?
+      run
+    else
+      invalid_args
+    end
+  end
+
+  def invalid_args
+    puts 'Wrong number of arguments for command.'
+    puts self.class.usage
   end
 end

@@ -10,11 +10,18 @@ class HelpCommand < Command
   end
 
   def self.usage
-    'Usage: help, help <command>'
+    <<-USAGE
+Usage:
+  help
+  help <command>
+    USAGE
   end
 
-  def execute
-    p args
+  def validate?
+    args.count > 0
+  end
+
+  def run
     if args.count > 0
       help_for(args)
     else 

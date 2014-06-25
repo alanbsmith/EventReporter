@@ -1,5 +1,6 @@
 require './test/test_helper'
 require './lib/commands/find_command'
+require 'minitest/mock'
 
 class FindCommandTest < MiniTest::Test 
   def test_it_exists
@@ -18,6 +19,14 @@ class FindCommandTest < MiniTest::Test
 
   def test_it_has_a_usage
     assert_respond_to FindCommand, :usage
+  end
+
+  def test_it_calls_set_queue_on_obj
+    obj = MiniTest::Mock.new
+    obj.expect(:set_queue, [], [[]])
+    obj.expect(:entries, [], [])
+    FindCommand.new(obj, ['state', 'CO']).execute
+    obj.verify
   end
 
   def test_it_can_handle_a_single_attribute_and_condition

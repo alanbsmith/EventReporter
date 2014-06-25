@@ -1,5 +1,6 @@
 require './test/test_helper'
 require './lib/commands/load_command'
+require 'minitest/mock'
 
 class LoadCommandTest < Minitest::Test
   def test_it_exists
@@ -18,5 +19,12 @@ class LoadCommandTest < Minitest::Test
 
   def test_it_has_a_usage
     assert_respond_to LoadCommand, :usage
+  end
+
+  def test_it_calls_load_on_obj
+    obj = MiniTest::Mock.new
+    obj.expect(:load, [], ['file.csv'])
+    LoadCommand.new(obj, ['file.csv']).execute
+    obj.verify
   end
 end
