@@ -18,6 +18,7 @@ class EventReporter < REPL
   def load(filename)
     repo.load(filename)
     repo.build_entries
+    puts "Loaded #{repo.entries.count} items from #{filename}."
   end
 
   def set_queue(data)

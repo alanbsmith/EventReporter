@@ -9,7 +9,7 @@ class Finder
     results = entries
     opts.each do |key, value|
       value = Array(value).map(&:downcase)
-      results = results.select { |entry| value.include?(entry[key].downcase) }
+      results = results.select { |entry| value.include?(entry.send(key).to_s.downcase) }
     end
     results
   end
