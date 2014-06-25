@@ -10,7 +10,7 @@ class Attendee
               :registration,
               :first_name,
               :last_name,
-              :phone,
+              :home_phone,
               :email,
               :street,
               :city,

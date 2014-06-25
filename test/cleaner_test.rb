@@ -44,6 +44,10 @@ class CleanerTest < Minitest::Test
     raw_phone = nil
     cleaner   = Cleaner.new
     assert_equal "0000000000", cleaner.home_phone(raw_phone)
+
+    raw_phone = "6154385000"
+    cleaner   = Cleaner.new
+    assert_equal "6154385000", cleaner.home_phone(raw_phone)
   end
 
   def test_it_validates_email
