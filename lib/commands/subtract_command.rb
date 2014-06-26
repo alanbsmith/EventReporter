@@ -5,6 +5,17 @@ class SubtractCommand < Command
   def self.aliases
     ['s', 'subtract']
   end
+
+  def self.description
+    'Removes matching results from the existing queue.'
+  end
+
+  def self.usage
+    <<-USAGE
+Usage:
+  subtract <attribute> <condition>
+    USAGE
+  end
   
   def validate?
     args.count >= 2

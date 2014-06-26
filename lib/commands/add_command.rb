@@ -6,6 +6,17 @@ class AddCommand < Command
     ['a', 'add']
   end
 
+  def self.description
+    'Adds results to the existing queue.'
+  end
+
+  def self.usage
+    <<-USAGE
+Usage:
+  add <attribute> <condition>
+    USAGE
+  end
+
   def validate?
     args.count >= 2
   end
