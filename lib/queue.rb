@@ -43,7 +43,6 @@ class Queue
 
   def display_set(set)
     @iterations += 1
-    p remaining_entries
     tp set
     puts "Showing matches: #{start_range} - #{end_range}", ''
     if remaining_entries > 10
