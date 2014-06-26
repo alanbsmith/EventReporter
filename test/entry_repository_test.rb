@@ -4,6 +4,8 @@ require_relative '../lib/entry_repository'
 
 class EntryRepositoryTest < Minitest::Test
   class TestType
+    attr_reader :first_name
+
     def self.build(row)
       new
     end
@@ -30,5 +32,10 @@ class EntryRepositoryTest < Minitest::Test
     repo.load('./test/fixtures/dummy_data.csv')
     repo.build_entries
     assert_equal 4, repo.entries.count
+  end
+
+  def test_it_sets_the_attributes 
+    repo = EntryRepository.new(TestType)
+    assert_equal [:first_name], repo.attributes
   end
 end

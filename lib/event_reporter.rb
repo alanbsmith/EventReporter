@@ -53,4 +53,8 @@ class EventReporter < REPL
   def queue_entries
     @queue.data
   end
+
+  def attributes
+    @repo.attributes
+  end
 end

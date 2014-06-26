@@ -1,12 +1,15 @@
 require 'csv'
 
 class EntryRepository
-  attr_reader :csv, :entries, :type
+  attr_reader :csv, :entries, :type, :attributes
 
   def initialize(type)
     @type    = type
     @entries = []
     @csv     = []
+    if type
+      @attributes = type.instance_methods - Class.instance_methods
+    end
   end
 
   def load(filename)
