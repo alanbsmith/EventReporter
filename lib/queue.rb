@@ -17,6 +17,14 @@ class Queue
     data.count
   end
 
+  def add(data)
+    @data.concat(data)
+  end
+
+  def subtract(to_remove)
+    @data = data - to_remove
+  end
+
   def clear
     @data = []
   end

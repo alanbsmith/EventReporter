@@ -41,4 +41,19 @@ class QueueTest < Minitest::Test
     que.load(data)
     assert [], que.clear
   end
+
+  def test_it_adds_to_the_queue
+    que = Queue.new
+    que.load(data)
+    assert_equal 4, que.count
+    que.add([1, 2])
+    assert_equal 6, que.count
+  end
+
+  def test_it_subtracts_from_the_queue
+    que = Queue.new
+    que.load([1, 2, 3, 4, 5, 6])
+    que.subtract([1, 2])
+    assert_equal [3, 4, 5, 6], que.data
+  end
 end

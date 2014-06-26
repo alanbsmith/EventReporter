@@ -34,13 +34,30 @@ class EventReporterTest < MiniTest::Test
 
   def test_it_can_set_the_queue
     r = EventReporter.new
-    assert_equal [], r.queue.data
+    assert_equal [], r.queue_entries
     r.set_queue([1, 2, 3])
-    assert_equal [1, 2, 3], r.queue.data
+    assert_equal [1, 2, 3], r.queue_entries
   end
 
   def test_it_can_print_the_queue
     r = EventReporter.new
     assert r.respond_to?(:print_queue)
+  end
+
+  def test_it_can_add_to_the_queue
+    r = EventReporter.new
+    assert_equal [], r.queue_entries
+    r.add_to_queue([1, 2, 3])
+    assert_equal [1, 2, 3], r.queue_entries
+    r.add_to_queue([4, 5, 6])
+    assert_equal [1, 2, 3, 4, 5, 6], r.queue_entries
+  end
+
+  def test_it_can_subtract_from_the_queue
+    r = EventReporter.new
+    assert_equal [], r.queue_entries
+    r.set_queue([1, 2, 3])
+    r.subtract_from_queue([1])
+    assert_equal [2, 3], r.queue_entries
   end
 end

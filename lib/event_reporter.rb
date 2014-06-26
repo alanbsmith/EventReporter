@@ -41,4 +41,16 @@ class EventReporter < REPL
   def save_queue(filename)
     @queue.save(filename)
   end
+
+  def add_to_queue(data)
+    @queue.add(data)
+  end
+
+  def subtract_from_queue(data)
+    @queue.subtract(data)
+  end
+
+  def queue_entries
+    @queue.data
+  end
 end
