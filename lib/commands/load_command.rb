@@ -18,6 +18,7 @@ Usage:
 
   def run
     file = args.first || './data/event_attendees.csv'
-    obj.load(file)
+    entries = obj.load(file)
+    puts "Loaded #{entries.count} entries."
   end
 end

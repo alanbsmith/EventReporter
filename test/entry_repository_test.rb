@@ -13,11 +13,10 @@ class EntryRepositoryTest < Minitest::Test
     assert EntryRepository
   end
 
-  def test_it_loads_the_data
+  def test_it_creates_a_csv_object
     repo = EntryRepository.new(nil)
     repo.load('./test/fixtures/dummy_data.csv')
     assert repo.csv.is_a? CSV
-    assert_equal 4, repo.csv.count
   end
 
   def test_it_doesnt_load_a_nonexisting_file

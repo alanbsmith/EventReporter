@@ -14,7 +14,6 @@ class EntryRepository
       @csv = CSV.open(filename, headers: true, header_converters: :symbol)
       true
     else
-      puts 'File does not exist.'
       false
     end
   end
@@ -24,8 +23,9 @@ class EntryRepository
     @csv.each do |row|
       entries << build_entry(row)
     end
-    puts "Loaded #{entries.count} items."
     entries
+  rescue StandardError
+    false
   end
 
   def build_entry(row)

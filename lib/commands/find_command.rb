@@ -33,6 +33,7 @@ USAGE
   def run
     f = Finder.new(obj.entries)
     results = f.find(parse_args)
+    puts "Found #{results.count} matching results."
     obj.set_queue(results)
   end
 
