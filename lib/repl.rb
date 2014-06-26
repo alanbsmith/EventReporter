@@ -1,13 +1,22 @@
+require 'readline'
 require './lib/commands/help_command'
 require './lib/commands/quit_command'
 
 class REPL
   attr_accessor :running
-  attr_reader :commands
+  attr_reader :commands, :comp
 
   def initialize(commands = [])
     @commands = [QuitCommand, HelpCommand].concat(commands).uniq
     @running = false
+    setup_auto_completion
+  end
+
+  def setup_auto_completion
+    aliases = @commands.collect { |c| c.aliases }.flatten
+    comp = proc { |s| aliases.grep(/^#{Regexp.escape(s)}/) }
+    Readline.completion_append_character = ' '
+    Readline.completion_proc = comp
   end
 
   def run
@@ -20,8 +29,7 @@ class REPL
   end
 
   def get_input
-    print '> '
-    gets.strip.split
+    Readline.readline('> ', true).strip.split
   end
 
   def process(command, args)
