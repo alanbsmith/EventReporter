@@ -18,7 +18,10 @@ Usage:
 
   def run
     file = args.first || './data/event_attendees.csv'
-    entries = obj.load(file)
-    puts "Loaded #{entries.count} entries."
+    if entries = obj.load(file)
+      puts "Loaded #{entries.count} entries."
+    else
+      puts "File not found: #{file}"
+    end
   end
 end
