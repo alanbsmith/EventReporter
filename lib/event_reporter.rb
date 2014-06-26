@@ -12,6 +12,10 @@ class EventReporter < REPL
     @queue = Queue.new
   end
 
+  def intro
+    'Welcome to Event Report. Type \'help\' for a list of commands.'
+  end
+
   def entries
     repo.entries
   end

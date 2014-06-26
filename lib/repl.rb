@@ -22,10 +22,15 @@ class REPL
   def run
     @running = true
 
+    puts intro if intro
+
     while running
       command, *args = get_input
       process(command, args)
     end
+  end
+
+  def intro
   end
 
   def get_input
