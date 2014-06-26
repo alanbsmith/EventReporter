@@ -37,19 +37,36 @@ class Queue
   def handle_loop(sorted_entries)
     @iterations = 0
     sorted_entries.each_slice(10) do |slice|
-      break unless display_set(slice)
+      break if display_set(slice)
     end
   end
 
   def display_set(set)
     @iterations += 1
+    p remaining_entries
     tp set
-    puts "Showing matches: #{((iterations-1) * 10) + 1} - #{iterations*10}", ''
-    if (data.count - (iterations-1) * 10) > 10
+    puts "Showing matches: #{start_range} - #{end_range}", ''
+    if remaining_entries > 10
       chr = get_character
-      return false if chr == 'q'
+      return true if chr == 'q'
     end
-    true
+    false
+  end
+
+  def start_range
+    ((iterations - 1) * 10) + 1
+  end
+
+  def end_range
+    if remaining_entries <= 10
+      (start_range - 1) + remaining_entries
+    else
+      iterations * 10
+    end
+  end
+
+  def remaining_entries
+    data.count - (iterations-1) * 10
   end
 
   def get_character
